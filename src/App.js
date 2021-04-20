@@ -1,6 +1,6 @@
 import './App.css';
-import Welcome from './components/Welcome'
-
+import Welcome from './components/Welcome';
+import Register from './components/Register';
 
 function App() {
   return (
@@ -8,8 +8,10 @@ function App() {
       <header className="App-header">
         <p id="welcome-text">Welcome to</p>
         <h1>DOGGY DAYCARE</h1>
-        <Welcome />
       </header>
+      <main className='App-main'>
+        <Register />
+      </main>
     </div>
   );
 }

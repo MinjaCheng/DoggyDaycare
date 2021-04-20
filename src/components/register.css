@@ -1,0 +1,17 @@
+.dog-info {
+    display: grid;
+    grid-template-rows: repeat(100, 25em);
+    grid-template-columns: repeat(4, 15em);
+    justify-content: center;
+}
+
+.dog-info div {
+    border: 1px solid lightgray;
+}
+
+.dog-info img {
+    margin-top: 1em;
+    width: 90%;
+    height: 40%;
+    object-fit: scale-down;
+}

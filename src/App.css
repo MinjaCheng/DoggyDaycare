@@ -3,8 +3,8 @@
 }
 
 .App-header {
-  background-color: #e6e4de;
-  min-height: 100vh;
+  min-width: 100vh;
+  background-color:var(--background-color-beige);
   display: flex;
   flex-direction: column;
   font-size: calc(15px + 2vmin);
@@ -23,4 +23,10 @@
   font-weight: bold;
   padding-left: 0.5em;
   padding-right: 0.5em;
+}
+
+.App-main {
+  min-height: 100vh;
+  min-width: 100vh;
+  background-color: var(--background-color-beige);
 }
