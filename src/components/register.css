@@ -1,7 +1,7 @@
 .dog-info {
     display: grid;
-    grid-template-rows: repeat(100, 25em);
-    grid-template-columns: repeat(4, 15em);
+    grid-template-rows: repeat(100, 23em);
+    grid-template-columns: repeat(4, 13em);
     justify-content: center;
 }
 
