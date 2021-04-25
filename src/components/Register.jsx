@@ -7,7 +7,6 @@ const Register = () => {
     const [fetchData, setFetchData] = useState([]);
 
     useEffect(async () => {
-        
 
             const url = 'https://api.jsonbin.io/b/607eb43024143e5df089b745';
 
@@ -31,12 +30,13 @@ const Register = () => {
         <section className='dog-info'>
             {fetchData.map((d, index) => (
             <div key={d}>
-                <img src={d.img} alt={d.name} />
-                <p>Name: {d.name}</p>
-                <p>Breed: {d.breed}</p>
-                <p>At Daycare: Yes</p>
-                <nav>More information ></nav>
+                <img id="dog-img"src={d.img} alt={d.name} />
+                <p id="dog-name">{d.name.toUpperCase()}</p>
+                <p id="dog-breed">{d.breed.charAt(0).toUpperCase() + d.breed.slice(1)}</p>
+                <p id="at-daycare">At Daycare: <span className={"dog-present" + (d.present ? ' yes' : ' no')}>{d.present ? 'Yes':'No'}</span></p>
+                <nav id="more-info">More Info ></nav>
             </div>
+            
         ))}
         </section>
 

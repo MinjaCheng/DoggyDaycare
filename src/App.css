@@ -1,9 +1,10 @@
 .App {
+  min-width: 100vh;
+  min-height: 100vh;
   text-align: center;
 }
 
 .App-header {
-  min-width: 100vh;
   background-color:var(--background-color-beige);
   display: flex;
   flex-direction: column;
@@ -20,6 +21,7 @@
 
 .App-header h1 {
   margin-top: 0px;
+  margin-bottom: 1em;
   font-weight: bold;
   padding-left: 0.5em;
   padding-right: 0.5em;
@@ -27,6 +29,5 @@
 
 .App-main {
   min-height: 100vh;
-  min-width: 100vh;
   background-color: var(--background-color-beige);
 }

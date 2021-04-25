@@ -1,6 +1,6 @@
 .logo img{
     margin-top: 2em;
-    width: 70%;
+    width: 50%;
     height: 100%;
 }
 
@@ -10,7 +10,7 @@
     font-size: calc(10px + 2vmin);
     font-weight: bold;
     padding: 0.6em;
-    margin-top: 4em;
+    margin-top: 5em;
     margin-bottom: 2em;
     margin-left: 5px;
     margin-right: 5px;
