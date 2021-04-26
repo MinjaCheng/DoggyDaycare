@@ -1,4 +1,4 @@
-.dog-info {
+.dog-reg {
     display: grid;
     grid-template-rows: repeat(78, 22em);
     grid-template-columns: repeat(1, 1fr);
@@ -6,7 +6,7 @@
 }
 
 @media (min-width: 470px) {
-    .dog-info {
+    .dog-reg {
     display: grid;
     grid-template-rows: repeat(39, 22em);
     grid-template-columns: repeat(2, 13em);
@@ -14,7 +14,7 @@
 }
 
 @media (min-width: 700px) {
-    .dog-info {
+    .dog-reg {
     display: grid;
     grid-template-rows: repeat(26, 22em);
     grid-template-columns: repeat(3, 13em);
@@ -22,38 +22,38 @@
 }
 
 @media (min-width: 870px) {
-    .dog-info {
+    .dog-reg {
     display: grid;
     grid-template-rows: repeat(20, 22em);
     grid-template-columns: repeat(4, 13em);
     }
 }
 
-.dog-info div {
+.dog-reg div {
     background-color: var(--color-lightgray);
     margin: 2px;
 }
 
-.dog-info #dog-img {
+.dog-reg #dog-img {
     margin-top: 1em;
     width: 90%;
     height: 40%;
     object-fit: scale-down;
 }
 
-.dog-info #dog-name {
+.dog-reg #dog-name {
     font-size: 1.3em;
     font-weight: 800;
     margin-bottom: 0px;
 }
 
-.dog-info #dog-breed {
+.dog-reg #dog-breed {
     font-size: 14px;
     color: grey;
     margin: 0px;
 }
 
-.dog-info #more-info {
+.dog-reg #more-info {
     font-size: 15px;
     color: whitesmoke;
     font-weight: bold;

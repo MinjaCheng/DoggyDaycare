@@ -27,14 +27,14 @@ const Register = () => {
 
 
     return (
-        <section className='dog-info'>
+        <section className='dog-reg'>
             {fetchData.map((d, index) => (
             <div key={d}>
                 <img id="dog-img"src={d.img} alt={d.name} />
                 <p id="dog-name">{d.name.toUpperCase()}</p>
                 <p id="dog-breed">{d.breed.charAt(0).toUpperCase() + d.breed.slice(1)}</p>
                 <p id="at-daycare">At Daycare: <span className={"dog-present" + (d.present ? ' yes' : ' no')}>{d.present ? 'Yes':'No'}</span></p>
-                <nav id="more-info">More Info ></nav>
+                <nav id="more-info">{"More Info >"}</nav>
             </div>
             
         ))}
