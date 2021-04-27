@@ -6,10 +6,10 @@ const Register = () => {
 
     const [fetchData, setFetchData] = useState([]);
 
-    useEffect(async () => {
-
-            const url = 'https://api.jsonbin.io/b/607eb43024143e5df089b745';
-
+    useEffect( async () => {
+        
+        const url = 'https://api.jsonbin.io/b/6087ced8f6655022c46cff44/1';
+            
             try {
                 const response = await fetch(url);
                 console.log('2. Got response', response);

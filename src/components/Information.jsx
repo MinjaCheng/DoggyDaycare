@@ -50,10 +50,9 @@ const Information = () => {
                 <div className="info" id="owner-name">David Emraz</div>
                 <div className="info-title">Phone number: </div>
                 <div className="info" id="owner-number">0762592136</div>
-            </div>
-
-            <div className="back-button">
-                <nav> {"<< Back"} </nav>
+                <div>
+                    <nav className="back-button"> {"<< Back"} </nav>
+                </div>
             </div>
         </section>
 

@@ -21,13 +21,22 @@
 
 .App-header h1 {
   margin-top: 0px;
-  margin-bottom: 1em;
-  font-weight: bold;
+  margin-bottom: 3em;
+  font-weight: 800;
   padding-left: 0.5em;
   padding-right: 0.5em;
 }
 
 .App-main {
-  min-height: 100vh;
   background-color: var(--background-color-beige);
+  min-height: 100vw;
+  padding-bottom: 5em;
+}
+
+.App-footer p{
+  margin: 0px 0px;
+  font-size: 1.2em;
+  color: gray;
+  background-color: var(--background-color-beige);
+  height: 100vh;
 }
