@@ -11,7 +11,7 @@ function App() {
                 <h1 > DOGGY DAYCARE </h1>
             </header >
             <main className='App-main' >
-                <Welcome />
+                <Register />
             </main>
             <footer className="App-footer">
                 <p>©️ 2021 by Minja Cheng </p>
