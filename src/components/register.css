@@ -55,10 +55,10 @@
 }
 
 .dog-reg #more-info {
+    text-decoration: none;
     font-size: 15px;
     color: whitesmoke;
-    font-weight: bold;
-    padding-top: 1.8em;
+    padding-top: 1.8em;  
 }
 
 .yes {
