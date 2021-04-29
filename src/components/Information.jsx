@@ -1,63 +1,58 @@
 import './information.css';
-import React, { useState, useEffect } from 'react';
+import { Link, useHistory } from 'react-router-dom';
 
-const Information = () => {
+const Information = ({ fetchData }) => {
 
     // const [fetchData, setFetchData] = useState([]);
-    // const dog = fetchData[0];
-    // console.log('Info: ', dog)
-    // //let dog = [];
+    // 
+    let path = window.location.toString();
+    let index = Number(path.split("index=")[1]);
+    console.log("index is", index);
 
-    // useEffect(async () => {
+    let history = useHistory();
 
-    //         const url = 'httdivs://adivi.jsonbin.io/b/607eb43024143e5df089b745';
+    if(fetchData){
+        if( isNaN(index) || index > fetchData.length || index<0)history.push("/register");
+    }
 
-    //         try {
-    //             const resdivonse = await fetch(url);
-    //             console.log('2. Got resdivonse', resdivonse);
+    if (fetchData[index]) {
 
-    //             const data = await resdivonse.json();
-    //             console.log('3. Got data', data);
+        let dog = fetchData[index];
+        return (
+            <section className='grid'>
 
-    //             setFetchData(data);
-    //         }
-    //         catch (err) {
-    //             console.log(err);
-    //         }
-
-    // }, []);
-
-
-    return (
-        <section className='dog-info'>
-
-            <div className="info-details">
-                <img id="info-img" src="https://images.dog.ceo/breeds/briard/n02105251_6840.jpg" alt="Molly" />
-                <div className="info-title">Name: </div>
-                <div className="info" id="info-name">Molly </div>
-                <div className="info-title">Age: </div>
-                <div className="info" id="info-year">4 years</div>
-                <div className="info-title">Breed: </div>
-                <div className="info" id="info-breed">Briard </div>
-                <div className="info-title">Sex: </div>
-                <div className="info" id="info-sex">female</div>
-                <div className="info-title">Chip number: </div>
-                <div className="info" id="info-id">HLM936015</div>
-                <div className="info-title">At Daycare: </div>
-                <div className="info" id="info-at-daycare">Yes </div>
-                {/* <div >At Daycare: <sdivan className={"dog-divresent" + (dog.divresent ? ' yes' : ' no')}>{dog.divresent ? 'Yes':'No'}</sdivan></div> */}
-                <div className="info-title">Owner's name: </div>
-                <div className="info" id="owner-name">David Emraz</div>
-                <div className="info-title">Phone number: </div>
-                <div className="info" id="owner-number">0762592136</div>
-                <div>
-                    <nav className="back-button"> {"<< Back"} </nav>
+                <div className="dog-info">
+                    <img id="info-img" src={dog.img} alt={dog.name} />
+                    <div className="info-title">Name: </div>
+                    <div className="info" id="info-name">{dog.name}</div>
+                    <div className="info-title">Age: </div>
+                    <div className="info" id="info-age">{dog.age} years</div>
+                    <div className="info-title">Breed: </div>
+                    <div className="info" id="info-breed">{dog.breed.charAt(0).toUpperCase() + dog.breed.slice(1)}</div>
+                    <div className="info-title">Sex: </div>
+                    <div className="info" id="info-sex">{dog.sex}</div>
+                    <div className="info-title">Chip number: </div>
+                    <div className="info" id="info-id">{dog.chipNumber}</div>
+                    <div className="info-title">At Daycare: </div>
+                    <div className="info" id="info-at-daycare">
+                        <span className={"dog-present" + (dog.present ? ' yes' : ' no')}>{dog.present ? 'Yes':'No'}</span>
+                    </div>
+                    <div className="info-title">Owner's name: </div>
+                    <div className="info" id="owner-name">{dog.owner.name} {dog.owner.lastName}</div>
+                    <div className="info-title">Phone number: </div>
+                    <div className="info" id="owner-number">{dog.owner.phoneNumber}</div>
+                    <div>
+                        <Link to="/register" style={{ textDecoration: 'none' }}>
+                            <nav className="back-button"> {"<< Back"} </nav>
+                        </Link>
+                    </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
 
-    );
+        );
+    }
+    else return("LOADING...")
 
 }
 
