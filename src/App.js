@@ -1,7 +1,7 @@
 import './App.css';
 import Welcome from './components/Welcome';
 import Register from './components/Register';
-import Information from './components/Information'
+import Information from './components/Information';
 import React, { useState, useEffect } from 'react';
 import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 

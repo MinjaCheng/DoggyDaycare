@@ -1,53 +1,43 @@
 import './register.css';
-// import React, { useState, useEffect } from 'react';
-import {Link} from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import Switch from "./Switch";
 
-const Register = ({fetchData}) => {
+const Register = ({ fetchData }) => {
 
-    // const [fetchData, setFetchData] = useState([]);
-    // const [selectedDog, setSelectedDog] = useState(null);
-    // console.log('Selected Dog index: ', selectedDog);
+    const [atDaycare, setAtDayCare] = useState(false);
+    const [searchWord, setSearchWord] = useState("");
 
-    // useEffect( async () => {
-        
-    //     const url = 'https://api.jsonbin.io/b/6087ced8f6655022c46cff44/1';
-            
-    //         try {
-    //             const response = await fetch(url);
-    //             console.log('2. Got response', response);
+    function handleSearch(e) {
+        //console.log("value:"+e.target.value)
+        setSearchWord(e.target.value.toLowerCase())
+    }
 
-    //             const data = await response.json();
-    //             console.log('3. Got data', data);
-
-    //             setFetchData(data);
-    //         }
-    //         catch (err) {
-    //             console.log(err);
-    //         }
-        
-    // }, []);
-
-    // const handleDecided = async ({selectedDog}) => {
-    //     console.log('Funkar detta??', selectedDog)
-    // }
 
     return (
-        <section className='dog-reg'>
-            {fetchData.map((d, index) => (
-            <div key={d} >
-                <img id="dog-img"src={d.img} alt={d.name} />
-                <p id="dog-name">{d.name.toUpperCase()}</p>
-                <p id="dog-breed">{d.breed.charAt(0).toUpperCase() + d.breed.slice(1)}</p>
-                <p id="at-daycare">At Daycare: <span className={"dog-present" + (d.present ? ' yes' : ' no')}>{d.present ? 'Yes':'No'}</span></p>
-                <Link to={"/info?index="+index} style={{ textDecoration: 'none' }}>
-                    <nav id="more-info">{"More Info >"}</nav>
-                </Link>
+        <section className='container'>
+            <div className='search-toggle'>
+                <input className="search-field" type="text" onChange={handleSearch} placeholder="Search" />
+                <div className="daycare">At daycare:</div>
+                <div className="toggle-button"><Switch isOn={atDaycare} handleToggle={() => setAtDayCare(!atDaycare)} /></div>
             </div>
-            
-        ))}
+
+            <div className='dog-reg'>
+                {fetchData.map((data, index) => (
+                    <div hidden={(!data.present && atDaycare) || (searchWord !== "" && !data.name.toLowerCase().includes(searchWord) && !data.breed.toLowerCase().includes(searchWord))} key={data}>
+                        <img className="dog-img" src={data.img} alt={data.name} />
+                        <p className="dog-name">{data.name.toUpperCase()}</p>
+                        <p className="dog-breed">{data.breed.charAt(0).toUpperCase() + data.breed.slice(1)}</p>
+                        <p className="at-daycare">At Daycare: <span className={"dog-present" + (data.present ? ' yes' : ' no')}>{data.present ? 'Yes' : 'No'}</span></p>
+                        <Link to={"/info?index=" + index} style={{ textDecoration: 'none' }}>
+                            <nav className="more-info">{"More Info >"}</nav>
+                        </Link>
+                    </div>
+                ))}
+            </div>
         </section>
 
-    
+
     );
 }
 

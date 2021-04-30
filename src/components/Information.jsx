@@ -1,28 +1,28 @@
 import './information.css';
-import { Link, useHistory } from 'react-router-dom';
+import { Link,useLocation, useHistory } from 'react-router-dom';
 
 const Information = ({ fetchData }) => {
 
-    // const [fetchData, setFetchData] = useState([]);
-    // 
-    let path = window.location.toString();
-    let index = Number(path.split("index=")[1]);
+
+    let index = Number(useLocation().search.split("index=")[1]);
     console.log("index is", index);
 
     let history = useHistory();
 
-    if(fetchData){
-        if( isNaN(index) || index > fetchData.length || index<0)history.push("/register");
+    if (fetchData) {
+        if (isNaN(index) || index > fetchData.length || index < 0) {
+            history.push("/register");
+        }
     }
 
     if (fetchData[index]) {
 
         let dog = fetchData[index];
+
         return (
             <section className='grid'>
-
                 <div className="dog-info">
-                    <img id="info-img" src={dog.img} alt={dog.name} />
+                    <img className="info-img" src={dog.img} alt={dog.name} />
                     <div className="info-title">Name: </div>
                     <div className="info" id="info-name">{dog.name}</div>
                     <div className="info-title">Age: </div>
@@ -35,7 +35,7 @@ const Information = ({ fetchData }) => {
                     <div className="info" id="info-id">{dog.chipNumber}</div>
                     <div className="info-title">At Daycare: </div>
                     <div className="info" id="info-at-daycare">
-                        <span className={"dog-present" + (dog.present ? ' yes' : ' no')}>{dog.present ? 'Yes':'No'}</span>
+                        <span className={"info-present" + (dog.present ? ' yes' : ' no')}>{dog.present ? 'Yes' : 'No'}</span>
                     </div>
                     <div className="info-title">Owner's name: </div>
                     <div className="info" id="owner-name">{dog.owner.name} {dog.owner.lastName}</div>
@@ -48,12 +48,9 @@ const Information = ({ fetchData }) => {
                     </div>
                 </div>
             </section>
-
-
         );
     }
-    else return("LOADING...")
-
+    else return ("LOADING...");
 }
 
 export default Information;
