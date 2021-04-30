@@ -20,6 +20,6 @@ const Switch = ({ isOn, handleToggle }) => {
             </label>
         </>
     );
-};
+}
 
 export default Switch;

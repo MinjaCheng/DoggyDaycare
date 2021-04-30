@@ -9,23 +9,23 @@ function App() {
 
     const [fetchData, setFetchData] = useState([]);
 
-    useEffect( async () => {
-        
+    useEffect(async () => {
+
         const url = 'https://api.jsonbin.io/b/6087ced8f6655022c46cff44/1';
-            
-            try {
-                const response = await fetch(url);
-                console.log('2. Got response', response);
 
-                const data = await response.json();
-                console.log('3. Got data', data);
+        try {
+            const response = await fetch(url);
+            // console.log('2. Got response', response);
 
-                setFetchData(data);
-            }
-            catch (err) {
-                console.log(err);
-            }
-        
+            const data = await response.json();
+            // console.log('3. Got data', data);
+
+            setFetchData(data);
+        }
+        catch (err) {
+            console.log(err);
+        }
+
     }, []);
 
     return (

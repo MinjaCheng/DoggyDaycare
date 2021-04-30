@@ -1,11 +1,10 @@
 import './information.css';
-import { Link,useLocation, useHistory } from 'react-router-dom';
+import { Link, useLocation, useHistory } from 'react-router-dom';
 
 const Information = ({ fetchData }) => {
 
-
     let index = Number(useLocation().search.split("index=")[1]);
-    console.log("index is", index);
+    // console.log("index is", index);
 
     let history = useHistory();
 

@@ -10,9 +10,8 @@ const Register = ({ fetchData }) => {
 
     function handleSearch(e) {
         //console.log("value:"+e.target.value)
-        setSearchWord(e.target.value.toLowerCase())
+        setSearchWord(e.target.value.toLowerCase());
     }
-
 
     return (
         <section className='container'>
@@ -36,8 +35,6 @@ const Register = ({ fetchData }) => {
                 ))}
             </div>
         </section>
-
-
     );
 }
 
